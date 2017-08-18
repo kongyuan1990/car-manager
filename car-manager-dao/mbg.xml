@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/car" userId="root"
+			password="123456">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- pojo生成的地方 -->
+		<javaModelGenerator targetPackage="com.smartparking.car.manager.bean"
+			targetProject="..\car-manager-pojo\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- sql映射文件生成的地方 -->
+		<sqlMapGenerator targetPackage="mybatis.mapper"
+			targetProject=".\src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- dao接口生成的地方 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.smartparking.car.manager.dao" targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 只要是数据库对应的pojo，我们都以T开头 -->
+		<!-- 指定要逆向的每一张表,用户表 -->
+<!--  		<table tableName="t_auth" domainObjectName="TAuth"></table> -->
+<!--  		<table tableName="t_carport" domainObjectName="TCarport"></table> -->
+<!--  		<table tableName="t_cert" domainObjectName="TCert"></table> -->
+<!--  		<table tableName="t_cert_portowner" domainObjectName="TCertPortowner"></table> -->
+ 		<table tableName="t_order" domainObjectName="TOrder"></table>
+<!--  		<table tableName="t_preorder" domainObjectName="TPreorder"></table> -->
+<!--  		<table tableName="t_user_member" domainObjectName="TUserMember"></table> -->
+<!--  		<table tableName="t_user_portowner" domainObjectName="TUserPortowner"></table> -->
+<!--  		<table tableName="t_wallet" domainObjectName="TWallet"></table> -->
+<!-- 		<table tableName="t_user_token" domainObjectName="TUserToken"></table> -->
+<!-- 		<table tableName="t_cert_member" domainObjectName="TCertMember"></table> -->
+<!-- 		<table tableName="t_type_cert" domainObjectName="TTypeCert"></table> -->
+	</context>
+</generatorConfiguration>
